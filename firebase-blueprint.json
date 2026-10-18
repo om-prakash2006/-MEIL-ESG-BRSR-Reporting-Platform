@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "EvidenceDocument": {
+      "title": "EvidenceDocument",
+      "description": "Metadata for ESG and statutory compliance evidence documents",
+      "type": "object",
+      "properties": {
+        "documentId": { "type": "string" },
+        "originalFileName": { "type": "string" },
+        "storagePath": { "type": "string" },
+        "downloadUrl": { "type": "string" },
+        "mimeType": { "type": "string" },
+        "fileSize": { "type": "number" },
+        "fileExtension": { "type": "string" },
+        "uploadedBy": { "type": "string" },
+        "uploadedByRole": { "type": "string" },
+        "uploadedAt": { "type": "number" },
+        "organizationId": { "type": "string" },
+        "companyId": { "type": "string" },
+        "businessUnitId": { "type": "string" },
+        "projectId": { "type": "string" },
+        "facilityId": { "type": "string" },
+        "reportingPeriodId": { "type": "string" },
+        "evidenceType": { "type": "string" },
+        "description": { "type": "string" },
+        "verificationStatus": { "type": "string" },
+        "verifiedBy": { "type": "string" },
+        "verifiedAt": { "type": "number" },
+        "version": { "type": "number" },
+        "evidenceGroupId": { "type": "string" },
+        "isCurrent": { "type": "boolean" },
+        "linkedRecordId": { "type": "string" },
+        "checksum": { "type": "string" },
+        "isActive": { "type": "boolean" }
+      },
+      "required": ["documentId", "originalFileName", "storagePath", "uploadedBy", "uploadedAt", "organizationId", "reportingPeriodId", "evidenceType", "verificationStatus", "version", "isCurrent", "isActive"]
+    },
+    "EvidenceLink": {
+      "title": "EvidenceLink",
+      "description": "Relationship linking an evidence document to an ESG activity data record",
+      "type": "object",
+      "properties": {
+        "linkId": { "type": "string" },
+        "documentId": { "type": "string" },
+        "recordId": { "type": "string" },
+        "linkedAt": { "type": "number" },
+        "linkedBy": { "type": "string" }
+      },
+      "required": ["linkId", "documentId", "recordId", "linkedAt", "linkedBy"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "Immutable audit record for regulatory traceability",
+      "type": "object",
+      "properties": {
+        "logId": { "type": "string" },
+        "actor": { "type": "string" },
+        "role": { "type": "string" },
+        "action": { "type": "string" },
+        "documentId": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "oldStatus": { "type": "string" },
+        "newStatus": { "type": "string" },
+        "scope": { "type": "string" },
+        "comments": { "type": "string" }
+      },
+      "required": ["logId", "actor", "action", "timestamp"]
+    },
+    "ActivityRecord": {
+      "title": "ActivityRecord",
+      "description": "ESG Activity Record transaction ledger",
+      "type": "object",
+      "properties": {
+        "activityId": { "type": "string" },
+        "organizationId": { "type": "string" },
+        "companyId": { "type": "string" },
+        "businessUnitId": { "type": "string" },
+        "projectId": { "type": "string" },
+        "facilityId": { "type": "string" },
+        "reportingPeriodId": { "type": "string" },
+        "scopeNo": { "type": "number" },
+        "scope3CategoryNo": { "type": "number" },
+        "activityTypeId": { "type": "string" },
+        "recordNature": { "type": "string" },
+        "periodStart": { "type": "string" },
+        "periodEnd": { "type": "string" },
+        "quantity": { "type": "number" },
+        "unitId": { "type": "string" },
+        "spendAmount": { "type": "number" },
+        "currencyCode": { "type": "string" },
+        "dataMethod": { "type": "string" },
+        "workflowStatus": { "type": "string" },
+        "currentVersion": { "type": "number" },
+        "isActive": { "type": "boolean" }
+      },
+      "required": ["activityId", "organizationId", "reportingPeriodId", "scopeNo", "activityTypeId", "workflowStatus", "currentVersion", "isActive"]
+    },
+    "ActivityVersion": {
+      "title": "ActivityVersion",
+      "description": "Historical version snapshot of corrected activity records",
+      "type": "object",
+      "properties": {
+        "versionId": { "type": "string" },
+        "activityId": { "type": "string" },
+        "version": { "type": "number" },
+        "previousVersion": { "type": "number" },
+        "changedBy": { "type": "string" },
+        "changedAt": { "type": "number" },
+        "changeReason": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["versionId", "activityId", "version", "changedBy", "changedAt"]
+    }
+  },
+  "firestore": {
+    "/evidenceDocuments/{documentId}": {
+      "schema": { "$ref": "#/entities/EvidenceDocument" },
+      "description": "Evidence documents metadata"
+    },
+    "/evidenceLinks/{linkId}": {
+      "schema": { "$ref": "#/entities/EvidenceLink" },
+      "description": "Evidence to ESG data record linkages"
+    },
+    "/auditLogs/{logId}": {
+      "schema": { "$ref": "#/entities/AuditLog" },
+      "description": "Evidence and activity immutable audit trail"
+    },
+    "/activityRecords/{activityId}": {
+      "schema": { "$ref": "#/entities/ActivityRecord" },
+      "description": "ESG activity record ledger"
+    },
+    "/activityVersions/{versionId}": {
+      "schema": { "$ref": "#/entities/ActivityVersion" },
+      "description": "Activity record historical revisions"
+    }
+  }
+}

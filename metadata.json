@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix MEIL ESG / BRSR Reporting Platform",
+  "description": "Enterprise ESG and statutory SEBI BRSR compliance portal for Megha Engineering \u0026 Infrastructures Ltd (MEIL) with role-based access control, multi-tier organizational hierarchy, and assurance auditing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

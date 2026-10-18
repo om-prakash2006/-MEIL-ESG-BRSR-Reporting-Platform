@@ -1,0 +1,115 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Evidence module collections
+    match /evidenceDocuments/{documentId} {
+      allow read, write: if true;
+    }
+    match /evidenceLinks/{linkId} {
+      allow read, write: if true;
+    }
+    match /auditLogs/{logId} {
+      allow read, write: if true;
+    }
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+    match /roles/{roleId} {
+      allow read, write: if true;
+    }
+    match /organizations/{orgId} {
+      allow read, write: if true;
+    }
+    match /businessUnits/{buId} {
+      allow read, write: if true;
+    }
+    match /projects/{projId} {
+      allow read, write: if true;
+    }
+    match /facilities/{facId} {
+      allow read, write: if true;
+    }
+    match /reportingPeriods/{periodId} {
+      allow read, write: if true;
+    }
+
+    // Phase 3 ESG Activity Ledger & Master Data collections
+    match /activityRecords/{activityId} {
+      allow read, write: if true;
+    }
+    match /activityDetails/{detailId} {
+      allow read, write: if true;
+    }
+    match /activityEvidenceLinks/{linkId} {
+      allow read, write: if true;
+    }
+    match /activityVersions/{versionId} {
+      allow read, write: if true;
+    }
+    match /emissionSources/{sourceId} {
+      allow read, write: if true;
+    }
+    match /activityTypes/{typeId} {
+      allow read, write: if true;
+    }
+    match /units/{unitId} {
+      allow read, write: if true;
+    }
+    match /scope3Categories/{catId} {
+      allow read, write: if true;
+    }
+    match /valueChainPartners/{partnerId} {
+      allow read, write: if true;
+    }
+    match /substances/{substanceId} {
+      allow read, write: if true;
+    }
+
+    // Phase 5 Audit & Assurance collections
+    match /auditAssignments/{assignmentId} {
+      allow read, write: if true;
+    }
+    match /auditReviews/{reviewId} {
+      allow read, write: if true;
+    }
+    match /auditFindings/{findingId} {
+      allow read, write: if true;
+    }
+    match /auditClarifications/{clarificationId} {
+      allow read, write: if true;
+    }
+
+    // Phase 6 Reconciliation & Correction Management collections
+    match /reconciliationCases/{caseId} {
+      allow read, write: if true;
+    }
+    match /correctionRequests/{requestId} {
+      allow read, write: if true;
+    }
+    match /reconciliationHistory/{historyId} {
+      allow read, write: if true;
+    }
+
+    // Phase 7 BRSR / ESG Report Generation collections
+    match /reports/{reportId} {
+      allow read, write: if true;
+    }
+    match /reportTemplates/{templateId} {
+      allow read, write: if true;
+    }
+    match /reportVersions/{versionId} {
+      allow read, write: if true;
+    }
+    match /reportDisclosures/{disclosureId} {
+      allow read, write: if true;
+    }
+    match /reportExports/{exportId} {
+      allow read, write: if true;
+    }
+
+    // Default deny for all other paths
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
