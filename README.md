@@ -33,6 +33,7 @@ The platform mirrors MEIL's multi-layered enterprise operational structure with 
 * **Tier 6 — Executive Management & Board (`MANAGEMENT`)**:
   * Read-only analytical oversight for the Board of Directors and ESG Committee.
   * Access to approved, auditor-verified sustainability dossiers and key ESG performance indicators.
+  * 
 Link for web-https://aistudio.google.com/apps/8e841189-dff3-4837-b3c4-17714cd2e5d3?showAssistant=true&showPreview=true
 ---
 
