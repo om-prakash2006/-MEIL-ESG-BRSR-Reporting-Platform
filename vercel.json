@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://meil-esg-brsr-reporting-platform-1.onrender.com*"
+    }
+  ]
+}
